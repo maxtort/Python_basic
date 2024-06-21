@@ -18,7 +18,7 @@
 # user_list = []
 #
 # result = 0
-# summ = 0
+summ = 0
 #
 # for index_user_list, value_user_list in enumerate(user_list):
 #         if index_user_list % 2 == 0:
