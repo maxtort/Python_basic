@@ -49,4 +49,29 @@
 # print('ОК')
 
 
+#  #  #  #  #  #  #  #  #  # Уникальный элемент
 
+
+def common_elements():
+    general_range = 100
+    x = list(range(0, general_range + 1))
+    new_general_range = 100
+    new_x = list(range(0, general_range + 1))
+
+    set_dev_3 = set()
+    set_dev_5 = set()
+
+    for num in x:
+        if num % 3 == 0:
+            set_dev_3.add(num)
+    for numb in new_x:
+        if numb % 5 == 0:
+            set_dev_5.add(numb)
+
+    union_set = set_dev_3.intersection(set_dev_5)
+
+    print(union_set)
+    return union_set
+
+common_elements()
+assert common_elements() == {0, 75, 45, 15, 90, 60, 30}
