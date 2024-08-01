@@ -31,7 +31,7 @@ class Group:
 
     def add_student(self, student):
         if len(self.group) >= self.max_students:
-            raise ValueError('Достигнут максимум студентов')
+            raise UserException('Достигнут максимум студентов')
         self.group.add(student)
 
     def delete_student(self, last_name):
@@ -54,6 +54,15 @@ class Group:
         return f'Number:{self.number}\n{all_students}'
 
 
+class UserException(Exception):
+    def __init__(self, message):
+        super().__init__()
+        self.message = message
+
+    def __str__(self):
+        return self.message
+
+
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
 st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
 st3 = Student('Male', 31, 'Michael', 'Jacson', 'AN143')
@@ -74,7 +83,7 @@ for student in [st1, st2, st3, st4, st5, st6, st7, st8, st9, st10]:
     gr.add_student(student)
 try:
     gr.add_student(st11)
-except ValueError as e:
+except UserException as e:
     print(f'Ошибка: {e}')
 
 
